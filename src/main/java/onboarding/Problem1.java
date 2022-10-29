@@ -12,8 +12,14 @@ class Problem1 {
     private final static int EXCEPTIONS = -1;
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        int answer = Integer.MAX_VALUE;
-        return answer;
+        if (hasException(pobi) || hasException(crong)) {
+            return EXCEPTIONS;
+        }
+
+        int scorePobi = maxScore(getScore(pobi.get(0)), getScore(pobi.get(1)));
+        int scoreCrong = maxScore(getScore(crong.get(0)), getScore(crong.get(1)));
+
+        return decideWinner(scorePobi, scoreCrong);
     }
 
     private static int[] int2Array(Integer pageNumber) {
