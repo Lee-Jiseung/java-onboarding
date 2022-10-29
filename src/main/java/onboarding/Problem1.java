@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 class Problem1 {
+
+    private final static int WIN_POBI = 1;
+    private final static int WIN_CRONG = 2;
+    private final static int DRAW = 0;
+
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
         return answer;
@@ -31,5 +36,15 @@ class Problem1 {
         int sum = Arrays.stream(numberArray).sum();
 
         return maxScore(Arrays.stream(numberArray).sum(), multiplyArray(numberArray));
+    }
+
+    private static int decideWinner(int p, int c) {
+        if (p < c) {
+            return WIN_CRONG;
+        } else if (p > c) {
+            return WIN_POBI;
+        } else {
+            return DRAW;
+        }
     }
 }
