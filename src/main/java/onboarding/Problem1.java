@@ -12,4 +12,8 @@ class Problem1 {
     private static int[] int2Array(Integer pageNumber) {
         return Stream.of(String.valueOf(pageNumber.intValue()).split("")).mapToInt(Integer::parseInt).toArray();
     }
+
+    private static int maxScore(int a, int b) {
+        return Math.max(a, b);
+    }
 }
