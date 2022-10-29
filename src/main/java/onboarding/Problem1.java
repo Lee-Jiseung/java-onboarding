@@ -9,6 +9,7 @@ class Problem1 {
     private final static int WIN_POBI = 1;
     private final static int WIN_CRONG = 2;
     private final static int DRAW = 0;
+    private final static int EXCEPTIONS = -1;
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
@@ -47,4 +48,18 @@ class Problem1 {
             return DRAW;
         }
     }
+
+    private static boolean hasException(List<Integer> pageNumbers) {
+        if (pageNumbers.get(0) + 1 != pageNumbers.get(1)) {
+            return true;
+        }
+        if (pageNumbers.get(0) % 2 == 0) {
+            return true;
+        }
+        if (pageNumbers.get(0) < 1 || pageNumbers.get(1) > 400) {
+            return true;
+        }
+        return false;
+    }
+
 }
